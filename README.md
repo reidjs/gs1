@@ -12,19 +12,20 @@ Product detail (show page)
 
 Don't really need vuex, all data should interface directly with firebase
 
-## deploy
-npm run build
+## Deploy
+`npm run deploy`
 
-git add dist && git commit -m "dist subtree commit"
+does:
 
-git subtree push --prefix dist origin gh-pages
+1. npm run build
+2. git add dist -f
+3. git commit -m "Update build"
+4. git subtree push --prefix dist origin gh-pages
 
 ## Development
-`npm i`
+0. rename `.env_SAMPLE` to `.env` and insert firebase config vars
+1. npm i
+2. npm run dev
+3. open http://localhost:8000
 
-`npm run dev`
-
-`localhost:8000`
-
-rename `.env_SAMPLE` to `.env` and insert firebase config
 

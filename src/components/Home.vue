@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1>Products</h1>
+    <h1>Product List</h1>
     <button @click="newProduct">Create new product</button>
     <ul>
       <li v-for="product in products" :key="product.id">
-        {{ product.value }}
+        {{ product.id }} {{ product.value }}
         <router-link :to="{ name: 'product', params: { id: product.id } }">
           View
         </router-link>
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex"
 import { getDatabase, ref, set, onValue } from "firebase/database"
 
 export default {

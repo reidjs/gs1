@@ -1,16 +1,22 @@
 <template>
   <div>
-    <h1>Product Detail</h1>
-    {{ value }}
-    <div ref="qrcode" id="qrcode"></div>
+    <h1>Product {{ $route.params.id }}</h1>
+    Value: {{ value }}
+    <div>
+    <QrcodeVue :value="route" />
+    </div>
     {{ route }} <a>Copy</a>
   </div>
 </template>
 
 <script>
 import { getDatabase, ref, set, onValue } from "firebase/database"
+import QrcodeVue from "qrcode.vue"
 
 export default {
+  components: {
+    QrcodeVue
+  },
   data() {
     return {
       route: '',
@@ -23,12 +29,7 @@ export default {
     }
   },
   mounted() {
-    const qrcode = new QRCode(this.$refs.qrcode, {
-      width: 100,
-      height: 100,
-    })
-    const route = window.location
-    qrcode.makeCode(route)
+    const route = window.location.href
     this.route = route
 
     const db = getDatabase()

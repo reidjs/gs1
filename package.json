@@ -4,10 +4,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "deploy": "npm run build && git add dist -f && git commit -m 'update build' && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "firebase": "^9.0.2",
+    "qrcode.vue": "^3.3.1",
     "vue": "^3.2.6",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2"
