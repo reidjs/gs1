@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div><router-link :to="{ name: 'home' }">Home</router-link> > Product {{ $route.params.id }}</div>
     <h1>Product {{ $route.params.id }}</h1>
     Value: {{ value }}
     <div>

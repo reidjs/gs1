@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>Home</div>
     <h1>Product List</h1>
     <button @click="newProduct">Create new product</button>
     <ul>
