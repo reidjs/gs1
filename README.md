@@ -12,6 +12,12 @@ Product detail (show page)
 
 Don't really need vuex, all data should interface directly with firebase
 
+## deploy
+npm run build
+
+git add dist && git commit -m "dist subtree commit"
+
+git subtree push --prefix dist origin gh-pages
 
 ## Development
 `npm i`
@@ -21,3 +27,4 @@ Don't really need vuex, all data should interface directly with firebase
 `localhost:8000`
 
 rename `.env_SAMPLE` to `.env` and insert firebase config
+

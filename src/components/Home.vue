@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Home</h1>
+    <h1>Products</h1>
     <button @click="newProduct">Create new product</button>
     <ul>
       <li v-for="product in products" :key="product.id">
