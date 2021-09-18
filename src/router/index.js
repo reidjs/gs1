@@ -3,15 +3,13 @@ import Home from '/src/components/Home.vue'
 import ProductDetail from '/src/components/ProductDetail.vue'
 import Login from '/src/components/Login.vue'
 import Account from '/src/components/Account.vue'
+import CreateProduct from '/src/components/CreateProduct.vue'
 
 const routes = [
   {
     path: '/gs1/',
     name: 'home',
     component: Home,
-    props: {
-      breadcrumbs: "test"
-    }
   },
   {
     path: '/gs1/product/:id/',
@@ -27,6 +25,11 @@ const routes = [
     path: '/gs1/account/',
     name: 'account',
     component: Account 
+  },
+  {
+    path: '/gs1/product/new/',
+    name: 'createProduct',
+    component: CreateProduct 
   },
 ]
 const router = createRouter({

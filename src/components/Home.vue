@@ -2,7 +2,7 @@
   <div>
     <Header :breadcrumbs="[{ label: 'Home'}]"/>
     <h1>Product List</h1>
-    <button @click="newProduct">Create new product</button>
+    <router-link :to="{name: 'createProduct'}">Create New Product</router-link>
     <ul>
       <li v-for="product in products" :key="product.id">
         {{ product.id }} {{ product.value }}

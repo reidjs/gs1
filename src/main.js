@@ -22,18 +22,28 @@ const store = createStore({
   state () {
     return {
       products: {},
+      notification: null,
       user: null 
     }
   },
   getters: {
     user (state) {
       return state.user
+    },
+    notification (state) {
+      return state.notification
     }
   },
   mutations: {
     setUser(state, user) {
       state.user = user
-    } 
+    },
+    setNotification(state, notification) {
+      state.notification = notification
+    },
+    clearNotification(state) {
+      state.notification = null
+    }
   }
 })
 

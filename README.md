@@ -1,3 +1,29 @@
+TODO:
+1. Auth
+  - Login with email/password?
+  - Logout
+2. Attach products to users
+3. Public/Private products
+4. Only edit when auth'd 
+5. index page should split between your products and other products (yours at top)
+6. products should show who created them 
+7. after creating a product, should have link to view product or view 
+
+user {
+  displayName
+  email
+}
+
+product {
+  id: string
+  created_by: user_id
+  created_at: datetime
+  details {
+    thc_percentage: number
+    strain: string
+  }
+}
+
 QR Code Reader
   - QR -> URL
 QR Code Generator
