@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div><router-link :to="{ name: 'home' }">Home</router-link> > Product {{ $route.params.id }}</div>
+    <Header :breadcrumbs="breadcrumbs" />
     <h1>Product {{ $route.params.id }}</h1>
     Value: {{ value }}
     <div>
-    <QrcodeVue :value="route" />
+      <QrcodeVue :value="route" />
     </div>
     {{ route }} <a>Copy</a>
   </div>
@@ -13,21 +13,36 @@
 <script>
 import { getDatabase, ref, set, onValue } from "firebase/database"
 import QrcodeVue from "qrcode.vue"
+import Header from "./Header.vue"
 
 export default {
   components: {
-    QrcodeVue
+    QrcodeVue,
+    Header,
   },
   data() {
     return {
-      route: '',
-      value: null
+      route: "",
+      value: null,
     }
+  },
+  computed: {
+    breadcrumbs() {
+      return [
+        {
+          urlName: "home",
+          label: "Home",
+        },
+        {
+          label: `Product ${this.$route.params.id}`,
+        },
+      ]
+    },
   },
   methods: {
     updateProduct(product) {
       this.value = product.value
-    }
+    },
   },
   mounted() {
     const route = window.location.href

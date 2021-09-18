@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Home</div>
+    <Header :breadcrumbs="[{ label: 'Home'}]"/>
     <h1>Product List</h1>
     <button @click="newProduct">Create new product</button>
     <ul>
@@ -18,8 +18,9 @@
 
 <script>
 import { getDatabase, ref, set, onValue } from "firebase/database"
-
+import Header from "./Header.vue"
 export default {
+  components: { Header },
   data() {
     return {
       products: [],
@@ -47,6 +48,7 @@ export default {
   },
   mounted() {
     const db = getDatabase()
+
     const productRef = ref(db, "products/")
     onValue(productRef, (snapshot) => {
       const products = snapshot.val()

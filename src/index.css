@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+input {
+  border: 1px solid black;
+}
+
+button {
+  background-color: lightgrey;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid black;
+}

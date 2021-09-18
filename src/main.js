@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 import { initializeApp } from 'firebase/app'
 import App from './App.vue'
 import router from "./router/index"
-
+import "./index.css"
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -21,10 +21,23 @@ const firebaseConfig = {
 const store = createStore({
   state () {
     return {
-      products: {}
+      products: {},
+      user: null 
     }
   },
+  getters: {
+    user (state) {
+      return state.user
+    }
+  },
+  mutations: {
+    setUser(state, user) {
+      state.user = user
+    } 
+  }
 })
+
+
 try {
   initializeApp(firebaseConfig)
 } catch(e) {
