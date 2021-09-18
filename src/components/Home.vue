@@ -1,60 +1,20 @@
 <template>
   <div>
     <Header :breadcrumbs="[{ label: 'Home'}]"/>
-    <h1>Product List</h1>
-    <router-link :to="{name: 'createProduct'}">Create New Product</router-link>
-    <ul>
-      <li v-for="product in products" :key="product.id">
-        {{ product.id }} {{ product.value }}
-        <router-link :to="{ name: 'product', params: { id: product.id } }">
-          View
-        </router-link>
-        <a>Delete&nbsp;</a>
-        <a>Edit</a>
-      </li>
-    </ul>
+    <div class="flex items-center flex-col">
+    <h1>Welcome to legitweed.com</h1>
+    <h2>Legitweed, weed you can trust.</h2>
+    <router-link :to="{ name: 'productList'}">View All Products</router-link>
+    </div>
+    <h3>About</h3>
+    <p>Providing the most accurate marijuana supply chain data in the United States. A subsidiary company of GS1.</p>
   </div>
 </template>
 
 <script>
-import { getDatabase, ref, set, onValue } from "firebase/database"
 import Header from "./Header.vue"
 export default {
   components: { Header },
-  data() {
-    return {
-      products: [],
-    }
-  },
-  computed: {},
-  methods: {
-    newProduct() {
-      const min = 1000
-      const max = 10000
-      const id = Math.floor(Math.random() * (max - min) + min)
-      const value = Math.floor(Math.random() * 10)
-      const db = getDatabase()
-      set(ref(db, "products/" + id), {
-        value,
-      })
-    },
-    updateProducts(products) {
-      const result = []
-      Object.keys(products).forEach((key) => {
-        result.push({ id: key, value: products[key].value })
-      })
-      this.products = result
-    },
-  },
-  mounted() {
-    const db = getDatabase()
-
-    const productRef = ref(db, "products/")
-    onValue(productRef, (snapshot) => {
-      const products = snapshot.val()
-      this.updateProducts(products)
-    })
-  },
 }
 </script>
 

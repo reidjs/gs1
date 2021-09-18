@@ -1,29 +1,43 @@
 <template>
   <div>
     <Header :breadcrumbs="breadcrumbs" />
-    <h1>Product {{ $route.params.id }}</h1>
-    Value: {{ value }}
-    <div>
-      <QrcodeVue :value="route" />
-    </div>
-    {{ route }} <a>Copy</a>
+    <h1>Product Details</h1>
+    <LabeledValue label="Name" :value="product.productName" />
+    <LabeledValue label="ID" :value="id" />
+    <LabeledValue label="THC %" :value="product.thcPercentage" />
+    <LinkedValue
+      v-if="product.createdBy"
+      label="Created by"
+      :urlTo="{ name: 'user', params: { id: product.createdBy } }"
+      :value="product.createdBy"
+    />
+    <br />
+    <router-link :to="{ name: 'productEdit' }">Edit product</router-link>
+    <br />
+    <router-link :to="{ name: 'productLabel' }">Print label</router-link>
+    <br />
+    <a>Copy link</a>
+    <br />
+    <span>{{ route }}</span>
   </div>
 </template>
 
 <script>
 import { getDatabase, ref, set, onValue } from "firebase/database"
-import QrcodeVue from "qrcode.vue"
+import { LabeledValue, LinkedValue } from "./common.mjs"
 import Header from "./Header.vue"
-
+// import LabeledValue from "./LabeledValue.vue"
 export default {
   components: {
-    QrcodeVue,
     Header,
+    LabeledValue,
+    LinkedValue,
   },
   data() {
     return {
       route: "",
-      value: null,
+      // value: null,
+      product: {},
     }
   },
   computed: {
@@ -34,14 +48,17 @@ export default {
           label: "Home",
         },
         {
-          label: `Product ${this.$route.params.id}`,
+          label: `Product ${this.product.productName}`,
         },
       ]
+    },
+    id() {
+      return this.$route.params.id
     },
   },
   methods: {
     updateProduct(product) {
-      this.value = product.value
+      this.product = product
     },
   },
   mounted() {
@@ -49,7 +66,7 @@ export default {
     this.route = route
 
     const db = getDatabase()
-    const productRef = ref(db, "products/" + this.$route.params.id)
+    const productRef = ref(db, "products/" + this.id)
     onValue(productRef, (snapshot) => {
       const product = snapshot.val()
       this.updateProduct(product)

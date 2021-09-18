@@ -2,7 +2,6 @@
   <div>
     <Header :breadcrumbs="breadcrumbs" />
     <form v-if="user">
-      <h1>New Product</h1>
       <h2>Upload data from file</h2>
       <input type="file" @change="uploadFile" />
       <hr />
