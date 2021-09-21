@@ -4,7 +4,7 @@ import ProductDetail from '/src/components/ProductDetail.vue'
 import UserDetail from '/src/components/UserDetail.vue'
 import Login from '/src/components/Login.vue'
 import Account from '/src/components/Account.vue'
-import CreateProduct from '/src/components/CreateProduct.vue'
+import ProductCreate from '/src/components/ProductCreate.vue'
 import ProductLabel from '/src/components/ProductLabel.vue'
 import ProductList from '/src/components/ProductList.vue'
 import ProductEdit from '/src/components/ProductEdit.vue'
@@ -52,8 +52,8 @@ const routes = [
   },
   {
     path: '/gs1/product/new/',
-    name: 'createProduct',
-    component: CreateProduct 
+    name: 'productCreate',
+    component: ProductCreate 
   },
   
 ]

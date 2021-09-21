@@ -37,6 +37,10 @@ const breadcrumbs = [
     label: "Home",
   },
   {
+    urlName: "productList",
+    label: "Product List",
+  },
+  {
     label: "Create new product",
   },
 ]

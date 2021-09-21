@@ -38,6 +38,9 @@ const store = createStore({
     setUser(state, user) {
       state.user = user
     },
+    clearUser(state) {
+      state.user = null
+    },
     setNotification(state, notification) {
       state.notification = notification
     },

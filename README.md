@@ -8,6 +8,8 @@ TODO:
 5. index page should split between your products and other products (yours at top)
 6. products should show who created them 
 7. after creating a product, should have link to view product or view 
+8. bookmark products
+9. leave comments on products
 
 user {
   displayName

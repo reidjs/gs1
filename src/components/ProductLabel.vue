@@ -41,6 +41,10 @@ export default {
           label: "Home",
         },
         {
+          urlName: "productList",
+          label: "Product List",
+        },
+        {
           urlName: "product",
           params: { id: this.$route.params.id },
           label: `Product ${this.$route.params.id}`,

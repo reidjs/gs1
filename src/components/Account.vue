@@ -6,18 +6,20 @@
       <h2>Details</h2>
       {{ user }}
       <hr />
-      <h2>My Products</h2>
+      <button @click="logout">Log out</button>
     </div>
     <div v-else>
-      <p>Please <router-link :to="{ name: 'login'}">log in</router-link>
- to view your account information.</p>
+      <p>
+        Please <router-link :to="{ name: 'login' }">log in</router-link> to view
+        your account information.
+      </p>
     </div>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue"
-import { mapGetters } from "vuex"
+import { mapGetters, mapMutations } from "vuex"
 
 export default {
   components: { Header },
@@ -34,6 +36,14 @@ export default {
           label: this.user?.displayName,
         },
       ]
+    },
+  },
+  methods: {
+    ...mapMutations(["clearUser", "setNotification"]),
+    logout() {
+      this.clearUser()
+      this.$router.push({ name: "home" })
+      this.setNotification({ message: "Successfully logged out."})
     },
   },
 }

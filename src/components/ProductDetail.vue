@@ -26,7 +26,6 @@
 import { getDatabase, ref, set, onValue } from "firebase/database"
 import { LabeledValue, LinkedValue } from "./common.mjs"
 import Header from "./Header.vue"
-// import LabeledValue from "./LabeledValue.vue"
 export default {
   components: {
     Header,
@@ -36,7 +35,6 @@ export default {
   data() {
     return {
       route: "",
-      // value: null,
       product: {},
     }
   },
@@ -46,6 +44,10 @@ export default {
         {
           urlName: "home",
           label: "Home",
+        },
+        {
+          urlName: "productList",
+          label: "Product List",
         },
         {
           label: `Product ${this.product.productName}`,

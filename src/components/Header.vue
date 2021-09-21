@@ -15,9 +15,9 @@
       <router-link v-if="showUser" :to="{name: 'account'}"><img class="w-10 h-10 rounded-full" :src="user.photoURL"/></router-link>
     </nav>
     <div class="w-full h-8">
-      <div v-if="notification" class="px-6 flex items-center justify-between align-center w-full h-full bg-green-100">
+      <div v-if="notification" class="px-6 flex items-center align-center w-full h-full bg-green-100">
+        <button class="mr-4" @click="clearNotification">&times;</button>
         <span>{{ notification.message }}</span>
-        <button @click="clearNotification">&times;</button>
 
         </div>
     </div>
