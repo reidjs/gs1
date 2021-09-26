@@ -61,7 +61,8 @@ import { ref, set, push, onValue } from "firebase/database"
 import Header from "./Header.vue"
 
 const defaultDisplayName = "Bob Smith"
-const defaultPhotoURL = "https://lh3.googleusercontent.com/a-/AOh14GiZC4GJIdB-hQudPwFBW8KOmlAqb1l-nbZZ6Ns6=s96-c"
+const defaultPhotoURL =
+  "https://lh3.googleusercontent.com/a-/AOh14GiZC4GJIdB-hQudPwFBW8KOmlAqb1l-nbZZ6Ns6=s96-c"
 
 const breadcrumbs = [
   {
@@ -75,6 +76,7 @@ const breadcrumbs = [
 
 export default {
   components: { Header },
+  inject: ["db"],
   data() {
     return {
       breadcrumbs,
@@ -88,6 +90,7 @@ export default {
   methods: {
     addUserInformationToFirebase({ uid, displayName, email, photoURL }) {
       const userRef = ref(this.db, "users/" + uid)
+      console.log("userRef", userRef)
       set(userRef, {
         uid,
         displayName,
@@ -104,7 +107,6 @@ export default {
         photoURL = defaultPhotoURL
       }
       this.$store.commit("setUser", { uid, displayName, email, photoURL })
-
     },
     loginWithEmail() {
       const auth = getAuth()
@@ -113,12 +115,13 @@ export default {
           // Signed in
           const user = userCredential.user
           const userRef = ref(this.db, "users/" + user.uid)
-          onValue(userRef, snapshot => {
+          onValue(userRef, (snapshot) => {
             if (snapshot.val()) {
               const { displayName, email, photoURL, uid } = snapshot.val()
               this.addUserToVuex({ uid, displayName, email, photoURL })
             }
           })
+          this.$router.back()
         })
         .catch((error) => {
           const errorCode = error.code
@@ -139,6 +142,7 @@ export default {
             photoURL: this.photoURL,
           })
           console.log("user", user)
+          this.$router.back()
           // ...
         })
         .catch((error) => {
@@ -159,6 +163,7 @@ export default {
           const token = credential.accessToken
           // The signed-in user info.
           const user = result.user
+          console.log("user", user)
           this.addUserInformationToFirebase({
             uid: user.uid,
             displayName: user.displayName,

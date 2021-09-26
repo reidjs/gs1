@@ -3,7 +3,7 @@
     <Header :breadcrumbs="breadcrumbs" />
     <h1>Product Details</h1>
     <LabeledValue label="Name" :value="product.productName" />
-    <LabeledValue label="ID" :value="id" />
+    <!-- <LabeledValue label="ID" :value="id" /> -->
     <LabeledValue label="THC %" :value="product.thcPercentage" />
     <LinkedValue
       v-if="product.createdBy"
@@ -32,6 +32,7 @@ export default {
     LabeledValue,
     LinkedValue,
   },
+  inject: ['db'],
   data() {
     return {
       route: "",

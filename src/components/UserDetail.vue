@@ -17,6 +17,7 @@ export default {
     LabeledValue,
     LinkedValue,
   },
+  inject: ['db'],
   data() {
     return {
       user: {},
