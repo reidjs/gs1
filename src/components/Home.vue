@@ -8,13 +8,18 @@
     </div>
     <h3>About</h3>
     <p>Providing the most accurate marijuana supply chain data in the United States. A subsidiary company of GS1.</p>
+    <button @click="seed">Reset database</button>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue"
+import utils from "../utils"
 export default {
   components: { Header },
+  mounted() {
+    this.seed = utils.seed
+  }
 }
 </script>
 

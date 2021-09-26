@@ -9,21 +9,21 @@
       v-if="product.createdBy"
       label="Created by"
       :urlTo="{ name: 'user', params: { id: product.createdBy } }"
-      :value="product.createdBy"
+      :value="createdByUserName"
     />
     <br />
     <router-link :to="{ name: 'productEdit' }">Edit product</router-link>
     <br />
     <router-link :to="{ name: 'productLabel' }">Print label</router-link>
     <br />
-    <a>Copy link</a>
+    <label>Share this page</label>
     <br />
     <span>{{ route }}</span>
   </div>
 </template>
 
 <script>
-import { getDatabase, ref, set, onValue } from "firebase/database"
+import { ref, set, onValue } from "firebase/database"
 import { LabeledValue, LinkedValue } from "./common.mjs"
 import Header from "./Header.vue"
 export default {
@@ -36,6 +36,7 @@ export default {
     return {
       route: "",
       product: {},
+      createdByUserName: "",
     }
   },
   computed: {
@@ -62,16 +63,23 @@ export default {
     updateProduct(product) {
       this.product = product
     },
+    getCreatedByUserName(createdBy) {
+    const userRef = ref(this.db, "users/" + createdBy)
+    onValue(userRef, (snapshot) => {
+      const user = snapshot.val()
+      this.createdByUserName = user.displayName
+    })
+    }
   },
   mounted() {
     const route = window.location.href
     this.route = route
 
-    const db = getDatabase()
-    const productRef = ref(db, "products/" + this.id)
+    const productRef = ref(this.db, "products/" + this.id)
     onValue(productRef, (snapshot) => {
       const product = snapshot.val()
       this.updateProduct(product)
+      this.getCreatedByUserName(product.createdBy)
     })
   },
 }

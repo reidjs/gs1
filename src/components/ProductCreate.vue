@@ -29,7 +29,7 @@
 <script>
 import Header from "./Header.vue"
 import { mapGetters, mapMutations } from "vuex"
-import { getDatabase, ref, set, push } from "firebase/database"
+import { ref, set, push } from "firebase/database"
 
 const breadcrumbs = [
   {
@@ -46,6 +46,7 @@ const breadcrumbs = [
 ]
 export default {
   components: { Header },
+  inject: ["db"],
   data() {
     return {
       breadcrumbs,
@@ -57,19 +58,16 @@ export default {
     ...mapGetters(["user"]),
   },
   methods: {
-    ...mapMutations(['setNotification']),
+    ...mapMutations(["setNotification"]),
     createNewProduct() {
-      console.log("this.productDetails", this.productName, this.thcPercentage)
-      console.log("this.user", this.user.uid)
-      const db = getDatabase()
-      const productRef = ref(db, "products")
+      const productRef = ref(this.db, "products")
       const newProductRef = push(productRef)
       set(newProductRef, {
         createdBy: this.user.uid,
         productName: this.productName,
         thcPercentage: this.thcPercentage,
       })
-      this.setNotification({ message: `Created ${this.productName}`})
+      this.setNotification({ message: `Created ${this.productName}` })
     },
     uploadFile() {
       this.productName = "foo"

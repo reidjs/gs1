@@ -43,11 +43,12 @@
 
 <script>
 import { Header, LabeledValue } from "./common.mjs"
-import { getDatabase, ref, set, onValue } from "firebase/database"
+import { ref, set, onValue } from "firebase/database"
 import { mapGetters } from "vuex"
 
 export default {
   components: { Header, LabeledValue },
+  inject: ['db'],
   data() {
     return {
       breadcrumbs: [
@@ -99,7 +100,7 @@ export default {
     },
     filterProducts() {
       const filteredProducts = this.allProducts.filter(p => {
-        const str = Object.values(p).join(' ')
+        const str = Object.values(p).map(v => v.toLowerCase()).join(' ')
         return str.includes(this.searchInput)
       })
       this.products = this.formatFilteredProducts(filteredProducts)
@@ -110,15 +111,12 @@ export default {
       }
     },
     deleteProduct(id) {
-      const db = getDatabase()
-
-      set(ref(db, "products/" + id), null)
+      set(ref(this.db, "products/" + id), null)
     },
   },
   mounted() {
-    const db = getDatabase()
 
-    const productRef = ref(db, "products/")
+    const productRef = ref(this.db, "products/")
     onValue(productRef, (snapshot) => {
       const products = snapshot.val()
       this.allProducts = this.formatProductsFromFirebase(products)

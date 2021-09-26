@@ -20,7 +20,7 @@
 
 <script>
 import Header from "./Header.vue"
-import { getDatabase, ref, set, onValue, update } from "firebase/database"
+import { ref, set, onValue, update } from "firebase/database"
 import { mapGetters, mapMutations } from "vuex"
 import { LabeledInput, LinkedValue } from "./common.mjs"
 
@@ -31,6 +31,7 @@ export default {
     // LabeledValue,
     LinkedValue,
   },
+  inject: ['db'],
   data() {
     return {
       route: "",
@@ -75,8 +76,7 @@ export default {
       this.thcPercentage = product.thcPercentage
     },
     save() {
-      const db = getDatabase()
-      const productRef = ref(db, "products/" + this.id) 
+      const productRef = ref(this.db, "products/" + this.id) 
       const updates = {}
       updates['productName'] = this.productName
       updates['thcPercentage'] = this.thcPercentage
@@ -88,8 +88,7 @@ export default {
     const route = window.location.href
     this.route = route
 
-    const db = getDatabase()
-    const productRef = ref(db, "products/" + this.id)
+    const productRef = ref(this.db, "products/" + this.id)
     onValue(productRef, (snapshot) => {
       const product = snapshot.val()
       this.updateProduct(product)

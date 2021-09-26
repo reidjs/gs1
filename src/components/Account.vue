@@ -2,10 +2,9 @@
   <div>
     <Header :breadcrumbs="breadcrumbs" />
     <div v-if="user">
-      <h1>Account</h1>
-      <h2>Details</h2>
-      {{ user }}
-      <hr />
+      <img :src="user.photoURL" />
+      <LabeledValue label="Name" :value="user.displayName" />
+      <LabeledValue label="Email" :value="user.email" />
       <button @click="logout">Log out</button>
     </div>
     <div v-else>
@@ -20,9 +19,9 @@
 <script>
 import Header from "./Header.vue"
 import { mapGetters, mapMutations } from "vuex"
-
+import { LabeledValue, LinkedValue } from "./common.mjs"
 export default {
-  components: { Header },
+  components: { Header, LabeledValue, LinkedValue },
   computed: {
     ...mapGetters(["user"]),
 
@@ -43,7 +42,7 @@ export default {
     logout() {
       this.clearUser()
       this.$router.push({ name: "home" })
-      this.setNotification({ message: "Successfully logged out."})
+      this.setNotification({ message: "Successfully logged out." })
     },
   },
 }
