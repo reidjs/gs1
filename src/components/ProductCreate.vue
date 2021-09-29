@@ -33,10 +33,6 @@ import { ref, set, push } from "firebase/database"
 
 const breadcrumbs = [
   {
-    urlName: "home",
-    label: "Home",
-  },
-  {
     urlName: "productList",
     label: "Product List",
   },

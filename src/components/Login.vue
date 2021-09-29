@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header :breadcrumbs="breadcrumbs" />
+    <Login2 />
     <h1>Login with Google</h1>
     <button @click="signInWithGoogle">Login with Google</button>
     <br />
@@ -59,6 +60,7 @@ import {
 } from "firebase/auth"
 import { ref, set, push, onValue } from "firebase/database"
 import Header from "./Header.vue"
+import Login2 from "./Login2.vue"
 
 const defaultDisplayName = "Bob Smith"
 const defaultPhotoURL =
@@ -66,16 +68,12 @@ const defaultPhotoURL =
 
 const breadcrumbs = [
   {
-    urlName: "home",
-    label: "Home",
-  },
-  {
     label: "Login",
   },
 ]
 
 export default {
-  components: { Header },
+  components: { Header, Login2 },
   inject: ["db"],
   data() {
     return {

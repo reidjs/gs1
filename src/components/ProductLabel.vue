@@ -16,6 +16,7 @@
     <div>
       <span>{{ route }}</span>
     </div>
+    <button class="no-print" @click="print">Print Label</button>
   </div>
 </template>
 
@@ -37,10 +38,6 @@ export default {
     breadcrumbs() {
       return [
         {
-          urlName: "home",
-          label: "Home",
-        },
-        {
           urlName: "productList",
           label: "Product List",
         },
@@ -55,9 +52,15 @@ export default {
       ]
     },
   },
+  methods: {
+    print() {
+      window.print()
+    }
+  },
   mounted() {
     const route = window.location.href
-    this.route = route
+    const idxOfPrint = route.indexOf('print')
+    this.route = route.slice(0, idxOfPrint)
   },
 }
 </script>

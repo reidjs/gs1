@@ -1,25 +1,33 @@
 <template>
-  <div>
+  <div class="bg-green-200">
     <Header :breadcrumbs="breadcrumbs" />
     <div v-if="user">
-      <h1>Edit product {{product.productName}}</h1>
+      <h1>Edit product {{ product.productName }}</h1>
       <LabeledInput label="Product name" v-model="productName" />
       <LabeledInput label="THC %" v-model="thcPercentage" />
-      <small v-if="product.createdBy">Created by <router-link :to="{name: 'user', params: {id: product.createdBy}}">{{ product.createdBy }}</router-link></small>
+      <small v-if="product.createdBy"
+        >Created by
+        <router-link
+          :to="{ name: 'user', params: { id: product.createdBy } }"
+          >{{ product.createdBy }}</router-link
+        ></small
+      >
       <br />
       <button @click="save">Save</button>
-      </div>
+      <EditForm class="m-8" />
+    </div>
     <div v-else>
       <p>
-        Please <router-link :to="{ name: 'login' }">log in</router-link> to edit the product {{product.productName}}
+        Please <router-link :to="{ name: 'login' }">log in</router-link> to edit
+        the product {{ product.productName }}
       </p>
     </div>
-
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue"
+import EditForm from "./EditForm.vue"
 import { ref, set, onValue, update } from "firebase/database"
 import { mapGetters, mapMutations } from "vuex"
 import { LabeledInput, LinkedValue } from "./common.mjs"
@@ -29,9 +37,10 @@ export default {
     Header,
     LabeledInput,
     // LabeledValue,
+    EditForm,
     LinkedValue,
   },
-  inject: ['db'],
+  inject: ["db"],
   data() {
     return {
       route: "",
@@ -46,10 +55,6 @@ export default {
 
     breadcrumbs() {
       return [
-        {
-          urlName: "home",
-          label: "Home",
-        },
         {
           urlName: "productList",
           label: "Product List",
@@ -69,20 +74,20 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(['setNotification']),
+    ...mapMutations(["setNotification"]),
     updateProduct(product) {
       this.product = product
       this.productName = product.productName
       this.thcPercentage = product.thcPercentage
     },
     save() {
-      const productRef = ref(this.db, "products/" + this.id) 
+      const productRef = ref(this.db, "products/" + this.id)
       const updates = {}
-      updates['productName'] = this.productName
-      updates['thcPercentage'] = this.thcPercentage
+      updates["productName"] = this.productName
+      updates["thcPercentage"] = this.thcPercentage
       update(productRef, updates)
-      this.setNotification({message: `Updated ${this.productName}`})
-    }
+      this.setNotification({ message: `Updated ${this.productName}` })
+    },
   },
   mounted() {
     const route = window.location.href

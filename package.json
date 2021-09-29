@@ -5,9 +5,12 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "deploy": "npm run build && git add dist -f && git commit -m 'update build' && git subtree push --prefix dist origin gh-pages"
+    "deploy": "npm run build && cd dist && cp index.html 404.html && cd .. && git add dist -f && git commit -m 'update build' && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.4.1",
+    "@heroicons/vue": "^1.0.4",
+    "@tailwindcss/forms": "^0.3.4",
     "firebase": "^9.0.2",
     "qrcode.vue": "^3.3.1",
     "vue": "^3.2.6",

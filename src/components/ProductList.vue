@@ -53,10 +53,6 @@ export default {
     return {
       breadcrumbs: [
         {
-          urlName: "home",
-          label: "Home",
-        },
-        {
           label: "Product List",
         },
       ],

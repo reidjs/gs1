@@ -28,10 +28,6 @@ export default {
     breadcrumbs() {
       return [
         {
-          urlName: "home",
-          label: "Home",
-        },
-        {
           label: this.user?.displayName,
         },
       ]

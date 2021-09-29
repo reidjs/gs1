@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :breadcrumbs="[{ label: 'Home'}]"/>
+    <Header :breadcrumbs="[]"/>
     <div class="flex items-center flex-col">
     <h1>Welcome to legitweed.com</h1>
     <h2>Legitweed, weed you can trust.</h2>
