@@ -1,7 +1,7 @@
 <template>
   <div>
+    <!-- NOT USED -->
     <Header :breadcrumbs="breadcrumbs" />
-    <Login2 />
     <h1>Login with Google</h1>
     <button @click="signInWithGoogle">Login with Google</button>
     <br />

@@ -18,7 +18,7 @@
       <button @click.prevent="createNewProduct">Create new product</button>
     </form>
     <div v-else>
-      <p>
+      <p class="text-2xl text-center">
         Please <router-link :to="{ name: 'login' }">log in</router-link> to
         create a new product
       </p>

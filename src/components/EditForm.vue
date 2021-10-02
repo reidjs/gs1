@@ -19,7 +19,7 @@
             </label>
             <div class="mt-1 sm:mt-0 sm:col-span-2">
               <textarea id="about" name="about" rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md" />
-              <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
+              <p class="mt-2 text-sm text-gray-500">Write a few sentences about the product.</p>
             </div>
           </div>
 
@@ -71,7 +71,7 @@
       <div class="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
         <div>
           <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Personal Information
+            Dispensary Information
           </h3>
           <p class="mt-1 max-w-2xl text-sm text-gray-500">
             Use a permanent address where you can receive mail.

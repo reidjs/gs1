@@ -1,4 +1,6 @@
 <template>
+<div>
+      <Header :breadcrumbs="breadcrumbs" />
   <div
     class="
       min-h-screen
@@ -33,6 +35,7 @@
                 id="email"
                 name="email"
                 type="email"
+                v-model="email"
                 autocomplete="email"
                 required=""
                 class="
@@ -66,6 +69,7 @@
                 id="password"
                 name="password"
                 type="password"
+                v-model="password"
                 autocomplete="current-password"
                 required=""
                 class="
@@ -88,64 +92,60 @@
           </div>
 
           <div v-if="checked">
-              <label
-                for="name"
-                class="block text-sm font-medium text-gray-700"
-              >
-                Name
-              </label>
-              <div class="mt-1">
-                <input
-                  type="text"
-                  required=""
-                  class="
-                    appearance-none
-                    block
-                    w-full
-                    px-3
-                    py-2
-                    border border-gray-300
-                    rounded-md
-                    shadow-sm
-                    placeholder-gray-400
-                    focus:outline-none
-                    focus:ring-indigo-500
-                    focus:border-indigo-500
-                    sm:text-sm
-                  "
-                />
-              </div>
+            <label for="name" class="block text-sm font-medium text-gray-700">
+              Name
+            </label>
+            <div class="mt-1">
+              <input
+                v-model="name"
+                type="text"
+                required=""
+                class="
+                  appearance-none
+                  block
+                  w-full
+                  px-3
+                  py-2
+                  border border-gray-300
+                  rounded-md
+                  shadow-sm
+                  placeholder-gray-400
+                  focus:outline-none
+                  focus:ring-indigo-500
+                  focus:border-indigo-500
+                  sm:text-sm
+                "
+              />
             </div>
-            <div v-if="checked">
-              <label
-                for="photo"
-                class="block text-sm font-medium text-gray-700"
-              >
-                Photo URL
-              </label>
-              <div class="mt-1">
-                <input
-                  name="photo"
-                  type="text"
-                  required=""
-                  class="
-                    appearance-none
-                    block
-                    w-full
-                    px-3
-                    py-2
-                    border border-gray-300
-                    rounded-md
-                    shadow-sm
-                    placeholder-gray-400
-                    focus:outline-none
-                    focus:ring-indigo-500
-                    focus:border-indigo-500
-                    sm:text-sm
-                  "
-                />
-              </div>
+          </div>
+          <div v-if="checked">
+            <label for="photo" class="block text-sm font-medium text-gray-700">
+              Photo URL
+            </label>
+            <div class="mt-1">
+              <input
+                name="photo"
+                v-model="photoURL"
+                type="text"
+                required=""
+                class="
+                  appearance-none
+                  block
+                  w-full
+                  px-3
+                  py-2
+                  border border-gray-300
+                  rounded-md
+                  shadow-sm
+                  placeholder-gray-400
+                  focus:outline-none
+                  focus:ring-indigo-500
+                  focus:border-indigo-500
+                  sm:text-sm
+                "
+              />
             </div>
+          </div>
 
           <div class="flex items-center justify-between">
             <div class="flex items-center">
@@ -167,8 +167,6 @@
                 New Account
               </label>
             </div>
-
-            
 
             <div class="text-sm">
               <a
@@ -218,7 +216,7 @@
             </div>
           </div>
 
-          <div class="mt-6 grid grid-cols-1 gap-3">
+          <div class="mt-6 grid grid-cols-1 gap-3" @click="signInWithGoogle">
             <div>
               <a
                 href="#"
@@ -240,13 +238,27 @@
               >
                 <span class="sr-only">Sign in with Google</span>
                 <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="ionicon w-8 h-8"
-                  viewBox="0 0 512 512"
                 >
-                  <title>Logo Google</title>
                   <path
-                    d="M473.16 221.48l-2.26-9.59H262.46v88.22H387c-12.93 61.4-72.93 93.72-121.94 93.72-35.66 0-73.25-15-98.13-39.11a140.08 140.08 0 01-41.8-98.88c0-37.16 16.7-74.33 41-98.78s61-38.13 97.49-38.13c41.79 0 71.74 22.19 82.94 32.31l62.69-62.36C390.86 72.72 340.34 32 261.6 32c-60.75 0-119 23.27-161.58 65.71C58 139.5 36.25 199.93 36.25 256s20.58 113.48 61.3 155.6c43.51 44.92 105.13 68.4 168.58 68.4 57.73 0 112.45-22.62 151.45-63.66 38.34-40.4 58.17-96.3 58.17-154.9 0-24.67-2.48-39.32-2.59-39.96z"
+                    d="M17.8088 9.2025C17.8088 8.61 17.7563 8.0475 17.6663 7.5H9.19125V10.8825H14.0438C13.8263 11.9925 13.1888 12.93 12.2438 13.5675V15.8175H15.1388C16.8338 14.25 17.8088 11.94 17.8088 9.2025Z"
+                    fill="#4285F4"
+                  />
+                  <path
+                    d="M9.19124 18C11.6212 18 13.6537 17.19 15.1387 15.8175L12.2437 13.5675C11.4337 14.1075 10.4062 14.4375 9.19124 14.4375C6.84374 14.4375 4.85624 12.855 4.14374 10.7175H1.15874V13.035C2.63624 15.975 5.67374 18 9.19124 18Z"
+                    fill="#34A853"
+                  />
+                  <path
+                    d="M4.14375 10.7175C3.95625 10.1775 3.85875 9.59996 3.85875 8.99996C3.85875 8.39996 3.96375 7.82247 4.14375 7.28247V4.96497H1.15875C0.543753 6.17997 0.191254 7.54496 0.191254 8.99996C0.191254 10.455 0.543753 11.82 1.15875 13.035L4.14375 10.7175Z"
+                    fill="#FBBC05"
+                  />
+                  <path
+                    d="M9.19124 3.5625C10.5187 3.5625 11.7037 4.02 12.6412 4.9125L15.2062 2.3475C13.6537 0.892501 11.6212 0 9.19124 0C5.67374 0 2.63624 2.025 1.15874 4.965L4.14374 7.2825C4.85624 5.145 6.84374 3.5625 9.19124 3.5625Z"
+                    fill="#EA4335"
                   />
                 </svg>
               </a>
@@ -256,14 +268,143 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth"
+import { ref, set, push, onValue } from "firebase/database"
+import Header from "./Header.vue"
+import Login2 from "./Login2.vue"
+
+const defaultDisplayName = "Bob Smith"
+const defaultPhotoURL =
+  "https://lh3.googleusercontent.com/a-/AOh14GiZC4GJIdB-hQudPwFBW8KOmlAqb1l-nbZZ6Ns6=s96-c"
+
+const breadcrumbs = [
+  {
+    label: "Login",
+  },
+]
+
 export default {
+    components: { Header},
+    inject: ["db"],
   data() {
     return {
-      checked: false,
+      breadcrumbs,
+      email: "",
+      password: "",
+      photoURL: "",
+      name: "",
+      error: "",
+      checked: false
     }
   },
+  methods: {
+    addUserInformationToFirebase({ uid, displayName, email, photoURL }) {
+      const userRef = ref(this.db, "users/" + uid)
+      console.log("userRef", userRef)
+      set(userRef, {
+        uid,
+        displayName,
+        email,
+        photoURL,
+      })
+      this.addUserToVuex({ uid, displayName, email, photoURL })
+    },
+    addUserToVuex({ uid, displayName, email, photoURL }) {
+      if (!displayName) {
+        displayName = defaultDisplayName
+      }
+      if (!photoURL) {
+        photoURL = defaultPhotoURL
+      }
+      this.$store.commit("setUser", { uid, displayName, email, photoURL })
+    },
+    loginWithEmail() {
+      const auth = getAuth()
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user
+          const userRef = ref(this.db, "users/" + user.uid)
+          onValue(userRef, (snapshot) => {
+            if (snapshot.val()) {
+              const { displayName, email, photoURL, uid } = snapshot.val()
+              this.addUserToVuex({ uid, displayName, email, photoURL })
+            }
+          })
+          this.$router.back()
+        })
+        .catch((error) => {
+          const errorCode = error.code
+          const errorMessage = error.message
+          this.error = errorMessage
+        })
+    },
+    signUpWithEmail() {
+      const auth = getAuth()
+      createUserWithEmailAndPassword(auth, this.email, this.password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user
+          this.addUserInformationToFirebase({
+            uid: user.uid,
+            displayName: this.name,
+            email: this.email,
+            photoURL: this.photoURL,
+          })
+          console.log("user", user)
+          this.$router.back()
+          // ...
+        })
+        .catch((error) => {
+          console.log("error", error)
+          const errorCode = error.code
+          const errorMessage = error.message
+          this.error = errorMessage
+          // ..
+        })
+    },
+    signInWithGoogle() {
+      const provider = new GoogleAuthProvider()
+      const auth = getAuth()
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          const credential = GoogleAuthProvider.credentialFromResult(result)
+          const token = credential.accessToken
+          // The signed-in user info.
+          const user = result.user
+          console.log("user", user)
+          this.addUserInformationToFirebase({
+            uid: user.uid,
+            displayName: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+          })
+          this.$router.back()
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code
+          const errorMessage = error.message
+          // The email of the user's account used.
+          const email = error.email
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error)
+          console.log("error with google signin", error)
+          // ...
+        })
+    },
+  },
+
 }
 </script>

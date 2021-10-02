@@ -30,8 +30,7 @@
           </div> -->
           <div class="hidden md:ml-6 md:flex md:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-            <a
-              href="#"
+            <router-link :to="{ name: 'home' }"
               class="
                 border-transparent
                 text-gray-500
@@ -47,30 +46,14 @@
               "
             >
               Home
-            </a>
-            <a
-              href="#"
+            </router-link>
+            <router-link
+  :to="{ name: 'productList'}"
               class="
                 border-transparent
                 text-gray-500
                 hover:border-gray-300
                 hover:text-gray-700
-                inline-flex
-                items-center
-                px-1
-                pt-1
-                border-b-2
-                text-sm
-                font-medium
-              "
-            >
-              Team
-            </a>
-            <a
-              href="#"
-              class="
-                border-indigo-500
-                text-gray-900
                 inline-flex
                 items-center
                 px-1
@@ -81,29 +64,29 @@
               "
             >
               Products
-            </a>
+            </router-link>
             <a
               href="#"
               class="
                 border-transparent
                 text-gray-500
-                hover:border-gray-300
-                hover:text-gray-700
                 inline-flex
                 items-center
                 px-1
                 pt-1
-                border-b-2
                 text-sm
                 font-medium
+                cursor-default
+                no-underline
               "
             >
-              Shipments
+              Shipments (Coming Soon!)
             </a>
           </div>
         </div>
         <div class="flex items-center">
           <div class="flex-shrink-0">
+            <router-link :to="{ name: 'productCreate'}">
             <button
               type="button"
               class="
@@ -127,6 +110,7 @@
               <PlusSmIcon class="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
               <span>New Product</span>
             </button>
+            </router-link>
           </div>
           <div class="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
             <button
@@ -234,8 +218,8 @@
     <DisclosurePanel class="md:hidden">
       <div class="pt-2 pb-3 space-y-1">
         <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
-        <a
-          href="#"
+        <router-link
+          :to="{ name: 'home' }"
           class="
             bg-indigo-50
             border-indigo-500
@@ -250,7 +234,26 @@
             sm:pl-5
             sm:pr-6
           "
-          >Dashboard</a
+          >Home</router-link>
+        <router-link
+         :to="{ name: 'productList'}" 
+          class="
+            border-transparent
+            text-gray-500
+            hover:bg-gray-50
+            hover:border-gray-300
+            hover:text-gray-700
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4
+            text-base
+            font-medium
+            sm:pl-5
+            sm:pr-6
+          "
+          >Products</router-link
         >
         <a
           href="#"
@@ -270,52 +273,12 @@
             sm:pl-5
             sm:pr-6
           "
-          >Team</a
-        >
-        <a
-          href="#"
-          class="
-            border-transparent
-            text-gray-500
-            hover:bg-gray-50
-            hover:border-gray-300
-            hover:text-gray-700
-            block
-            pl-3
-            pr-4
-            py-2
-            border-l-4
-            text-base
-            font-medium
-            sm:pl-5
-            sm:pr-6
-          "
-          >Projects</a
-        >
-        <a
-          href="#"
-          class="
-            border-transparent
-            text-gray-500
-            hover:bg-gray-50
-            hover:border-gray-300
-            hover:text-gray-700
-            block
-            pl-3
-            pr-4
-            py-2
-            border-l-4
-            text-base
-            font-medium
-            sm:pl-5
-            sm:pr-6
-          "
-          >Calendar</a
+          >Shipments (coming soon!)</a
         >
       </div>
       <div class="pt-4 pb-3 border-t border-gray-200">
         <div class="flex items-center px-4 sm:px-6">
-          <div class="flex-shrink-0">
+          <!-- <div class="flex-shrink-0">
             <img
               class="h-10 w-10 rounded-full"
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -325,7 +288,16 @@
           <div class="ml-3">
             <div class="text-base font-medium text-gray-800">Tom Cook</div>
             <div class="text-sm font-medium text-gray-500">tom@example.com</div>
-          </div>
+          </div> -->
+          <img
+                    v-if="user"
+                    class="h-8 w-8 rounded-full"
+                    :src="user.photoURL"
+                    alt=""
+                  />
+                  <router-link :to="{ name: 'login' }" v-else>
+                    Login
+                  </router-link>
           <button
             type="button"
             class="
@@ -344,7 +316,7 @@
             <BellIcon class="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div class="mt-3 space-y-1">
+        <div v-if="user" class="mt-3 space-y-1">
           <a
             href="#"
             class="
@@ -361,6 +333,7 @@
             >Your Profile</a
           >
           <a
+            v-if="user"
             href="#"
             class="
               block
@@ -376,6 +349,7 @@
             >Settings</a
           >
           <a
+            v-if="user"
             href="#"
             class="
               block

@@ -5,17 +5,21 @@ const seedData = {
     "-Mk9cZAlxNfc-lga6F6D": {
       "createdBy": "OKUw0qHBAbWkDDqCqdv2SEa8nrw2",
       "productName": "Trainwreck",
-      "thcPercentage": "12"
+      "thcPercentage": "12",
+      "imageURL": "https://i.imgur.com/VzSLBpi.jpeg"
     },
     "-Mk9cdV3modIP4XPpZ3q": {
       "createdBy": "5wmuo5izpGahhJpOp6H4CC4yEwo1",
       "productName": "Sour Diesel",
-      "thcPercentage": "15"
+      "thcPercentage": "15",
+      "imageURL": "https://i.imgur.com/VzSLBpi.jpeg"
+
     },
     "-Mk9h_fKiKWo0NpU_1oS": {
       "createdBy": "5wmuo5izpGahhJpOp6H4CC4yEwo1",
       "productName": "Maui Wowie",
-      "thcPercentage": "22"
+      "thcPercentage": "22",
+      "imageURL": "https://i.imgur.com/VzSLBpi.jpeg"
     }
   },
   "users": {

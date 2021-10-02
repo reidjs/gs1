@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '/src/components/Home.vue'
 import ProductDetail from '/src/components/ProductDetail.vue'
 import UserDetail from '/src/components/UserDetail.vue'
-import Login from '/src/components/Login.vue'
+import Login2 from '/src/components/Login2.vue'
 import Account from '/src/components/Account.vue'
 import ProductCreate from '/src/components/ProductCreate.vue'
 import ProductLabel from '/src/components/ProductLabel.vue'
@@ -38,7 +38,7 @@ const routes = [
   {
     path: '/gs1/login/',
     name: 'login',
-    component: Login 
+    component: Login2
   },
   {
     path: '/gs1/account/',

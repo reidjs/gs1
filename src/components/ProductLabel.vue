@@ -16,18 +16,22 @@
     <div>
       <span>{{ route }}</span>
     </div>
-    <button class="no-print" @click="print">Print Label</button>
+    <button type="button" @click="print" class="no-print inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-blue-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    <PrinterIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+    Print Label
+    </button>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue"
 import QrcodeVue from "qrcode.vue"
-
+import { PrinterIcon } from "@heroicons/vue/solid"
 export default {
   components: {
     QrcodeVue,
     Header,
+    PrinterIcon
   },
   data() {
     return {

@@ -1,6 +1,7 @@
 <template>
-  <div class="bg-green-200">
+  <div class="bg-gray-200">
     <Header :breadcrumbs="breadcrumbs" />
+    <EditForm class="m-8" />
     <div v-if="user">
       <h1>Edit product {{ product.productName }}</h1>
       <LabeledInput label="Product name" v-model="productName" />
@@ -14,7 +15,6 @@
       >
       <br />
       <button @click="save">Save</button>
-      <EditForm class="m-8" />
     </div>
     <div v-else>
       <p>
