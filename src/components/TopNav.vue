@@ -143,12 +143,13 @@
                   "
                 >
                   <span class="sr-only">Open user menu</span>
+                            <router-link :to="{name: 'account'}" v-if="user">
                   <img
-                    v-if="user"
                     class="h-8 w-8 rounded-full"
                     :src="user.photoURL"
                     alt=""
                   />
+                            </router-link>
                   <router-link :to="{ name: 'login' }" v-else>
                     Login
                   </router-link>
@@ -289,12 +290,13 @@
             <div class="text-base font-medium text-gray-800">Tom Cook</div>
             <div class="text-sm font-medium text-gray-500">tom@example.com</div>
           </div> -->
+          <router-link :to="{name: 'account'}" v-if="user">
           <img
-                    v-if="user"
                     class="h-8 w-8 rounded-full"
                     :src="user.photoURL"
                     alt=""
                   />
+          </router-link>
                   <router-link :to="{ name: 'login' }" v-else>
                     Login
                   </router-link>

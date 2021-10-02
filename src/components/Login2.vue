@@ -341,7 +341,7 @@ export default {
               this.addUserToVuex({ uid, displayName, email, photoURL })
             }
           })
-          this.$router.back()
+          this.$router.push('productList')
         })
         .catch((error) => {
           const errorCode = error.code

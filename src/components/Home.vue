@@ -383,7 +383,7 @@
           <div>
             <h2 class="text-3xl font-extrabold text-gray-900">How it works</h2>
             <p class="mt-4 text-lg text-gray-500">
-              Can’t find the answer you’re looking for? Post an issue on
+              Have more questions about the product? Check out the source code on 
               <a
                 href="https://github.com/reidjs/gs1"
                 class="font-medium text-indigo-600 hover:text-indigo-500"
@@ -393,12 +393,28 @@
           </div>
           <div class="mt-12 lg:mt-0 lg:col-span-2">
             <dl class="space-y-12">
-              <div v-for="faq in faqs" :key="faq.question">
+              <div>
                 <dt class="text-lg leading-6 font-medium text-gray-900">
-                  {{ faq.question }}
+                  question 
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
-                  {{ faq.answer }}
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
+                </dd>
+              </div>
+              <div>
+                <dt class="text-lg leading-6 font-medium text-gray-900">
+                  question 2
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
+                </dd>
+              </div>
+              <div>
+                <dt class="text-lg leading-6 font-medium text-gray-900">
+                  question 3
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
                 </dd>
               </div>
             </dl>
