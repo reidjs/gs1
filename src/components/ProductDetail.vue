@@ -76,7 +76,7 @@
               <span v-else>{{ item.value }}</span>
             </dd>
           </div>
-          <div :class="`bg-yellow-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6`">
+          <div :class="`bg-yellow-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 overflow-scroll`">
             <dt class="text-sm font-medium text-gray-500">
               <h3>Tracking Information</h3>
               <div class="flex items-center mt-2">
