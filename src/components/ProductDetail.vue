@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200 pb-32">
+  <div class="bg-gray-200 h-screen">
     <Header :breadcrumbs="breadcrumbs" />
 
     <!-- <h1>Product Details</h1>

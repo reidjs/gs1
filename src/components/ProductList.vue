@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200 pb-32">
+  <div class="bg-gray-200 h-screen">
     <Header :breadcrumbs="breadcrumbs" />
     <div class="bg-white shadow overflow-hidden sm:rounded-md m-8">
       <header class="p-8">
