@@ -36,8 +36,8 @@
             Information about {{ product.productName }}
           </p>
         </div>
-        <div>
-          <div class="flex">
+        <div class="md:flex">
+          <div class="flex md:mr-4">
             <PencilAltIcon
               class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
               aria-hidden="true"
@@ -52,7 +52,7 @@
               class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
               aria-hidden="true"
             />
-          <router-link class="text-blue-500 no-underline" :to="{ name: 'productLabel' }">Print label</router-link>
+          <router-link class="font-bold text-blue-500 no-underline" :to="{ name: 'productLabel' }">Print label</router-link>
           </div>
         </div>
       </div>
