@@ -297,10 +297,10 @@
                 md:text-6xl
               "
             >
-              <span class="block xl:inline">Supply chain data to enrich your</span>
+              <span class="block xl:inline">Supply chain data to build trust within the</span>
               {{ " " }}
-              <span class="block text-indigo-600 xl:inline"
-                >hemp business</span
+              <span class="block text-green-600 xl:inline"
+                >hemp industry</span
               >
             </h1>
             <p
@@ -395,7 +395,7 @@
             <dl class="space-y-12">
               <div>
                 <dt class="text-lg leading-6 font-medium text-gray-900">
-                  question 
+                  Due to restrictions around traditional marketing tactics, how can CBD brands leverage technology solutions combined with GS1 Standards to educate and engage more efficiently with new customers about the trustworthiness of their products? 
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
@@ -403,7 +403,8 @@
               </div>
               <div>
                 <dt class="text-lg leading-6 font-medium text-gray-900">
-                  question 2
+                  How can CBD brands better tell their “traceability stories” to discerning customers?
+
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
@@ -411,7 +412,24 @@
               </div>
               <div>
                 <dt class="text-lg leading-6 font-medium text-gray-900">
-                  question 3
+                  How can CBD brands use technology combined with GS1 Standards to build loyalty among their seasoned customers, particularly as the industry braces for potential disruption?
+
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
+                </dd>
+              </div>
+              <div>
+                <dt class="text-lg leading-6 font-medium text-gray-900">
+                  How can consumers be sure a Certificate of Analysis (COA) is real and trustworthy?
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
+                </dd>
+              </div>
+              <div>
+                <dt class="text-lg leading-6 font-medium text-gray-900">
+                  If a COA is a rare trust anchor in this complicated industry, how can CBD brands leverage technology combined with GS1 Standards?
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
