@@ -86,7 +86,7 @@
         </div>
       </div>
 
-      <div class="relative pt-6 pb-16 sm:pb-24">
+      <div class="relative bg-indigo-brand pt-6 pb-16 sm:pb-24">
         <Popover>
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <nav
@@ -97,6 +97,7 @@
                 justify-between
                 sm:h-10
                 md:justify-center
+                
               "
               aria-label="Global"
             >
@@ -136,7 +137,7 @@
                     <span class="sr-only">Workflow</span>
                     <img
                       class="h-8 w-auto sm:h-10"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                      src="../assets/logo2.png"
                       alt=""
                     />
                   </a>
@@ -145,7 +146,7 @@
               <div class="hidden md:flex md:space-x-10">
                 <!-- <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.href }" class="font-medium text-gray-500 hover:text-gray-900">{{ item.name }}</a> -->
                 <router-link
-                  class="font-medium text-gray-500 hover:text-gray-900"
+                  class="font-medium text-white hover:text-gray-900"
                   :to="{ name: 'productList' }"
                   >View Product List</router-link
                 >
@@ -299,7 +300,7 @@
             >
               <span class="block xl:inline">Supply chain data to build trust within the</span>
               {{ " " }}
-              <span class="block text-green-600 xl:inline"
+              <span class="block text-green-brand xl:inline"
                 >hemp industry</span
               >
             </h1>
@@ -308,16 +309,14 @@
                 mt-3
                 max-w-md
                 mx-auto
-                text-base text-gray-500
+                text-base text-white
                 sm:text-lg
                 md:mt-5
                 md:text-xl
                 md:max-w-3xl
               "
             >
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat aliqua.
+              Clear chain of custody. Accurate product information.
             </p>
             <div
               class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8"
@@ -336,9 +335,10 @@
                     text-base
                     font-medium
                     rounded-md
-                    text-white
-                    bg-indigo-600
-                    hover:bg-indigo-700
+                    text-indigo-brand
+                    bg-green-brand
+
+                    hover:bg-green-700
                     md:py-4
                     md:text-lg
                     md:px-10
@@ -398,17 +398,15 @@
                   Due to restrictions around traditional marketing tactics, how can CBD brands leverage technology solutions combined with GS1 Standards to educate and engage more efficiently with new customers about the trustworthiness of their products? 
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
+                 Our product combined with GS1 standards helps better educate new customers through our end-to-end traceability feature. We give clear and trackable detail of how a customer’s hemp was processed, who touched it, and what verified lab certified it. 
                 </dd>
               </div>
               <div>
                 <dt class="text-lg leading-6 font-medium text-gray-900">
                   How can CBD brands better tell their “traceability stories” to discerning customers?
-
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
-                </dd>
+                  ClearHemp can better tell a traceability story through a customer friendly portal of their hemp. A QR code on the side allows customers to easily see and interact with the full journey of their product.                </dd>
               </div>
               <div>
                 <dt class="text-lg leading-6 font-medium text-gray-900">
@@ -416,7 +414,7 @@
 
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
+CBD brands can use ClearHemp’s integrated product with GS1 standards to build loyalty by removing any legal troubles when transporting the product. Our solution can give law enforcement clear visibility to whether this product is hemp or cannabis as well as if it is abiding by the regulations. Thus, customers and companies can avoid any legal troubles with our product. 
                 </dd>
               </div>
               <div>
@@ -424,7 +422,7 @@
                   How can consumers be sure a Certificate of Analysis (COA) is real and trustworthy?
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
+Using a network of trusted and accredited 3rd-party labs within ClearHemp’s network, customers can be sure a COA is real through the ease of access into a company’s physical location, its name, and contact details.
                 </dd>
               </div>
               <div>
@@ -432,17 +430,16 @@
                   If a COA is a rare trust anchor in this complicated industry, how can CBD brands leverage technology combined with GS1 Standards?
                 </dt>
                 <dd class="mt-2 text-base text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, esse! Quae, deleniti. Laudantium 
-                </dd>
+CBD brands can use ClearHemp’s solution to gain trust by using a trackable and end-to-end digital solution. The information includes where it was grown, the extraction method, who processed it, what lab tested it and how it moved through the supply chain                </dd>
               </div>
             </dl>
           </div>
         </div>
       </div>
     </div>
-    <footer class="text-center m-4">
+    <!-- <footer class="text-center m-4">
       <button @click="seed">Reset database</button>
-    </footer>
+    </footer> -->
   </div>
 </template>
 

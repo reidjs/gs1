@@ -27,8 +27,7 @@
               v-model="searchInput"
               @input="filterProducts"
               class="
-                focus:ring-indigo-500
-                focus:border-indigo-500
+                focus:ring-indigo-500 focus:border-indigo-500
                 block
                 w-full
                 pl-10
@@ -41,9 +40,9 @@
           </div>
         </div>
         <div class="flex mt-2 justify-end">
-        <router-link :to="{ name: 'productCreate' }">
-          Create New Product
-        </router-link>
+          <router-link :to="{ name: 'productCreate' }">
+            Create New Product
+          </router-link>
         </div>
       </header>
       <ul role="list" class="divide-y divide-gray-200">
@@ -76,43 +75,43 @@
                   <div class="hidden md:block">
                     <div>
                       <div class="flex">
-                      <router-link
-                        :to="{
-                          name: 'productEdit',
-                          params: { id: product.id },
-                        }"
-                        class="
-                          mt-2
-                          flex
-                          items-center
-                          text-sm text-gray-500
-                          hover:text-gray-400
-                        "
-                      >
-                        <PencilAltIcon
-                          class="flex-shrink-0 mr-1.5 h-5 w-5 text-blue-400"
-                          aria-hidden="true"
-                        />
-                        Edit Product
-                      </router-link>
+                        <router-link
+                          :to="{
+                            name: 'productEdit',
+                            params: { id: product.id },
+                          }"
+                          class="
+                            mt-2
+                            flex
+                            items-center
+                            text-sm text-gray-500
+                            hover:text-gray-400
+                          "
+                        >
+                          <PencilAltIcon
+                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-blue-400"
+                            aria-hidden="true"
+                          />
+                          Edit Product
+                        </router-link>
                       </div>
                       <div class="flex">
-                      <p
-                        @click.prevent="openDeleteConfirmation(product)"
-                        class="
-                          mt-2
-                          flex
-                          items-center
-                          text-sm text-gray-500
-                          hover:text-gray-400
-                        "
-                      >
-                        <XCircleIcon
-                          class="flex-shrink-0 mr-1.5 h-5 w-5 text-red-400"
-                          aria-hidden="true"
-                        />
-                        Delete Product
-                      </p>
+                        <p
+                          @click.prevent="openDeleteConfirmation(product)"
+                          class="
+                            mt-2
+                            flex
+                            items-center
+                            text-sm text-gray-500
+                            hover:text-gray-400
+                          "
+                        >
+                          <XCircleIcon
+                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-red-400"
+                            aria-hidden="true"
+                          />
+                          Delete Product
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -129,10 +128,14 @@
         </li>
       </ul>
     </div>
+    <div class="flex underline text-blue-500 justify-center">
+      <button @click="seed">Reset database</button>
+    </div>
   </div>
 </template>
 
 <script>
+import utils from "../utils"
 import { Header, LabeledValue } from "./common.mjs"
 import { ref, set, onValue } from "firebase/database"
 import { mapGetters } from "vuex"
@@ -185,7 +188,7 @@ export default {
           productName: p.productName,
           createdBy: p.createdBy,
           thcPercentage: p.thcPercentage,
-          imageURL: p.imageURL
+          imageURL: p.imageURL,
         })
       })
       return result
@@ -194,13 +197,13 @@ export default {
       const result = []
       Object.keys(products).forEach((key) => {
         const p = products[key]
-        console.log('p', p)
+        console.log("p", p)
         result.push({
           id: p.id,
           productName: p.productName,
           createdBy: p.createdBy,
           thcPercentage: p.thcPercentage,
-          imageURL: p.imageURL
+          imageURL: p.imageURL,
         })
       })
       return result
@@ -230,6 +233,7 @@ export default {
       this.allProducts = this.formatProductsFromFirebase(products)
       this.products = this.formatProductsFromFirebase(products)
     })
+    this.seed = utils.seed
   },
 }
 </script>
