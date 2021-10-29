@@ -348,8 +348,9 @@
                 </router-link>
               </div>
               <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                <a
-                  href="#"
+                <a  
+                target="_blank"
+                href="https://drive.google.com/file/d/1s3z9O1PQJuDYx3Bde-LUNDacVV_KaUN9/view?usp=sharing"
                   class="
                     w-full
                     flex
