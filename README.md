@@ -20,6 +20,9 @@ git subtree split --prefix dist -b gh-pages # create a local gh-pages branch con
 git push -f origin gh-pages:gh-pages # force the push of the gh-pages branch to the remote gh-pages branch at origin
 git branch -D gh-pages # delete the local gh-pages because you will need it: ref
 ```
+Also, added
+base: "/gs1/"
+to vite.config.js 
 
 ## Development
 0. rename `.env_SAMPLE` to `.env` and insert firebase config vars
